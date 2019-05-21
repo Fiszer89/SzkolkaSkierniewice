@@ -1,0 +1,85 @@
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.dll.config
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.pdb
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Castle.Core.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.SqlServer.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Moq.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Newtonsoft.Json.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Ninject.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Ninject.Web.Common.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Ninject.Web.Mvc.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\PagedList.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\PagedList.Mvc.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Helpers.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Mvc.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Razor.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Webpages.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Webpages.Razor.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\WebActivatorEx.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.pdb
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Castle.Core.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.SqlServer.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Moq.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Newtonsoft.Json.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Ninject.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Ninject.Web.Common.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Ninject.Web.Mvc.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\PagedList.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\PagedList.Mvc.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Razor.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Webpages.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Webpages.Razor.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Helpers.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\System.Web.Mvc.xml
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.csprojResolveAssemblyReference.cache
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.dll
+C:\Users\Fiszerek\documents\visual studio 2013\Projects\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.pdb
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.dll.config
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.pdb
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Castle.Core.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\ClosedXML.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\DocumentFormat.OpenXml.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EPPlus.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Moq.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\WebActivatorEx.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.pdb
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.dll.config
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\ClosedXML.pdb
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\ClosedXML.xml
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.xml
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EPPlus.xml
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Moq.xml
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.csprojResolveAssemblyReference.cache
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.dll
+C:\Users\adfl\Desktop\moje proejkty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.pdb
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.dll.config
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.pdb
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Castle.Core.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\ClosedXML.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\DocumentFormat.OpenXml.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EPPlus.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Moq.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\WebActivatorEx.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.pdb
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\SzkolkaSkierniewice.Domain.dll.config
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\ClosedXML.pdb
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\ClosedXML.xml
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EntityFramework.xml
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\EPPlus.xml
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\bin\Moq.xml
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.csprojAssemblyReference.cache
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.csproj.CoreCompileInputs.cache
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.csproj.CopyComplete
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.dll
+C:\Users\adfl\Desktop\moje projekty\SzkolkaSkierniewice\SzkolkaSkierniewice\obj\Debug\SzkolkaSkierniewice.pdb

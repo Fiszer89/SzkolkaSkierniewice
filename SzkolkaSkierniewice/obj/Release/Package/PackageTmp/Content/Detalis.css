@@ -1,0 +1,16 @@
+﻿.coma-after-element::after {content:",";}
+.coma-none-element:last-child::after {content:none;}
+.floating-elements {float:right;}
+.multi-lanes {word-wrap:break-word;}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.btn{
+    white-space:normal !important;
+    word-wrap:break-word; 
+}  
+
+
+

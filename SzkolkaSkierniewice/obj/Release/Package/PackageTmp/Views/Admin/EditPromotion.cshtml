@@ -1,0 +1,109 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.Promotion
+
+@{
+    ViewBag.Title = "Edycja " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Edycja @Model.Name</h2>
+    </div>
+
+    @using (Html.BeginForm("EditPromotion", "Admin", new { PromotionID = @Model.PromotionID.ToString() }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Name, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Date, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Date)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.EndDate, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.EndDate)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Description, 4, 50, null)
+                </div>
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Price, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Price)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Link, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Link)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FreeGardenProject, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.FreeGardenProject, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.FreeGardenProject)
+            </div>
+
+            <div>
+                <span class="control-label col-md-2" style="padding-right:25px">
+                    @Html.Label("Dodaj promocje")
+                </span>
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <td style="padding: 10px">@Html.Label("Roslina w promocji") @Html.DropDownList("ProductID", null, new { @class = "form-control" })</td>
+                        <td style="padding: 10px">@Html.Label("Ilość sztuk") @Html.TextBox("Quantity", null, new { @class = "form-control" })</td>
+                        <td style="padding: 10px">@Html.ActionLink("Dodaj promocje", "BlankEditorRow", null, new { id = "addItem" })</td>
+                    </table>
+                </div>
+             </div>
+
+            <div id="editorRows">
+                @foreach(var item in Model.ProductPromotionList)
+                {
+                    @Html.DropDownListFor(m => m.ProductPromotionList.Select(p => p.ProductID), (SelectList)ViewBag.ProductID);
+                    @Html.EditorFor(m => m.ProductPromotionList.Select(p => p.QuantityOfProductsInPromotion), null, new { @class = "form-control" })
+                }
+            </div>
+        </div>
+    
+        <div class="panel-footer">
+            <input type="submit" value="Zapisz" class="btn btn-primary" />
+            @Html.ActionLink("Anuluj i wróć do listy", "PromotionList", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+
+<script>
+    var List;
+    $(document).ready(function () {
+        $("button").click(function () {
+            List.a
+        });
+    });
+</script>

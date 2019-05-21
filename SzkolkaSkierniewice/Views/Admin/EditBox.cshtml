@@ -1,0 +1,30 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.Box
+
+@{
+    ViewBag.Title = "Edycja " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Edycja @Model.Name</h2>
+    </div>
+
+    @using (Html.BeginForm("EditBox", "Admin", new { BoxID = @Model.BoxID.ToString() }))
+    {
+        <div class="panel-body form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Name, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <input type="submit" value="Zapisz" class="btn btn-primary" />
+            @Html.ActionLink("Anuluj i wróć do listy", "BoxesList", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

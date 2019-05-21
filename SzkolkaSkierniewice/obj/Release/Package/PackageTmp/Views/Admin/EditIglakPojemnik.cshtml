@@ -1,0 +1,161 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.IglakPojemnik
+
+@{
+    ViewBag.Title = "Edycja " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Edycja @Model.Name</h2>
+    </div>
+
+    @using (Html.BeginForm("EditIglakPojemnik", "Admin", new { ProductID = @Model.ProductID.ToString() }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Name, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Date, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Date)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Description, 4, 50, null)
+                </div>
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Quantity, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Quantity)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Price, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Price)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Discount, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Discount)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PriceAfterDicount, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(m => m.PriceAfterDicount, null, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HeightMin, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.HeightMin, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.HeightMin)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HeightMax, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.HeightMax, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.HeightMax)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Available, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.Available)
+                </div>
+                @Html.ValidationMessageFor(m => m.Available)
+            </div>
+
+            <div class="form-group">
+                 <span class="control-label col-md-2" style="padding-right:25px">
+                    @Html.Label("Pojemniki")
+                </span>
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                List<SzkolkaSkierniewice.ViewModels.AssignedBoxes> Boxes = ViewBag.Boxes;
+                                
+                                if(Boxes != null)
+                                { 
+                                    foreach (var box in Boxes)
+                                    {
+                                        if (cnt++ % 10 == 0)
+                                        {
+                                            @:</tr><tr>
+                                        }
+                                
+                                        @:<td>
+                                            <input type="checkbox"
+                                                   name="selectedBoxes"
+                                                   value="@box.BoxID"
+                                                   @(Html.Raw(box.Assigned ? "checked=\"checked\"" : "")) />
+                                            @:  @box.Title 
+                                        @:</td>
+                                    }
+                                    @:</tr>
+                                }
+                            }
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div style="position:relative;">
+                    <label>Zdjęcie</label>
+                    <a class='btn' href='javascript:;'>
+                        Wybierz plik...
+                        <input type="file" name="Image" size="40"
+                               style="position:absolute;z-index:2;top:0;
+                            left:0;filter: alpha(opacity=0); opacity:0;
+                            background-color:transparent;color:transparent;"
+                               onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class='label label-info' id="upload-file-info"></span>
+                </div>
+                @if (Model.ImageData == null)
+                {
+                    <div class="form-control-static">Brak zdjęcia</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "IglakiPojemnik", new { Model.ProductID })" />
+                }
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <input type="submit" value="Zapisz" class="btn btn-primary" />
+            @Html.ActionLink("Anuluj i wróć do listy", "IglakPojemnikList", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+

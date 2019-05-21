@@ -1,0 +1,72 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.Product
+ @using SzkolkaSkierniewice.Domain.Entities
+
+<div class="floating-box well">
+    <h6 style="text-align:center">
+        @if (Model is KrzewLisciasty)
+        { 
+            <span>
+                <strong>@Html.ActionLink(MyHelpers.Truncate(Model.Name, 20).ToString(), "Details", "KrzewyLisciaste", new { Model.ProductID }, null)</strong>
+            </span>
+        }
+        @if (Model is IglakGrunt)
+        {
+            <span>
+                <strong>@Html.ActionLink(MyHelpers.Truncate(Model.Name, 20).ToString(), "Details", "IglakiGrunt", new { Model.ProductID }, null)</strong>
+            </span>
+        }
+        @if (Model is IglakPojemnik)
+        {
+            <span>
+                <strong>@Html.ActionLink(MyHelpers.Truncate(Model.Name, 20).ToString(), "Details", "IglakiPojemnik", new { Model.ProductID }, null)</strong>
+            </span>
+        }
+        @if (Model is DrzewoAlejowe)
+        {
+            <span>
+                <strong>@Html.ActionLink(MyHelpers.Truncate(Model.Name, 20).ToString(), "Details", "DrzewaAlejowe", new { Model.ProductID }, null)</strong>
+            </span>
+        }
+    </h6>
+    @if (Model.ImageData != null)
+    {
+        if(Model is KrzewLisciasty)
+        {
+            <div style="display: block; margin: 0 auto">
+                <a href="@Url.Action("Details", "KrzewyLisciaste", new { Model.ProductID })"><img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "KrzewyLisciaste", new { Model.ProductID})" /></a>
+            </div>
+        }
+        if (Model is DrzewoAlejowe)
+        {
+            <div style="display: block; margin: 0 auto">
+                <a href="@Url.Action("Details", "DrzewaAlejowe", new { Model.ProductID })"><img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "DrzewaAlejowe", new { Model.ProductID})" /></a>
+            </div>
+        }
+        if (Model is IglakPojemnik)
+        {
+            <div style="display: block; margin: 0 auto">
+                <a href="@Url.Action("Details", "IglakiPojemnik", new { Model.ProductID })"><img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "IglakiPojemnik", new { Model.ProductID})" /></a>
+            </div>
+        }
+        if (Model is IglakGrunt)
+        {
+            <div style="display: block; margin: 0 auto">
+                <a href="@Url.Action("Details", "IglakiGrunt", new { Model.ProductID })"><img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "IglakiGrunt", new { Model.ProductID})" /></a>
+            </div>
+        }
+    }
+    else
+    {
+        <div>brak zdjęcia</div>
+    }
+
+    @if (Model.Price == Model.PriceAfterDicount)
+    {
+        <div class="label label-primary center-block" style="font-size:10px; margin-top:30px; display:inline-block">Cena: @Model.Price zł</div>
+    }
+    else
+    {
+        <div class="label label-primary" style="font-size:10px; margin-bottom:5px; display:inline-block"><del>Cena: @Model.Price zł</del></div>
+        <div class="label label-primary" style="font-size:10px; margin-top:5px; display:inline-block">Cena w promocji: @decimal.Round(Model.PriceAfterDicount, 2, MidpointRounding.AwayFromZero) zł</div>
+    }
+</div>

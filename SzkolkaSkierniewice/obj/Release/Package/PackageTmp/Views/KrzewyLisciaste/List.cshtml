@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<SzkolkaSkierniewice.Domain.Entities.KrzewLisciasty>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Krzewy lisciaste";
+}
+
+<h3>Lista krzewów lisciastych</h3>
+
+@using (Html.BeginForm("List", "KrzewyLisciaste", FormMethod.Get))
+{
+    <span class="form-group">
+        Szukaj krzewów liściastcyh: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { htmlAttributes = new { @class = "form-control" } })
+        <input type="submit" value="Szukaj" />
+        <select id="sortOrder" style="float:right; margin-bottom:20px">
+            <option value="1">alfabetycznie od początku</option>
+            <option value="2">alfabetycznie od końca</option>
+            <option value="3">od najmniejszej ceny</option>
+            <option value="4">od największej ceny</option>
+        </select>
+    </span>
+}
+
+<div id="summary" style="clear:right">
+    @if(Model.Count > 0)
+    { 
+        foreach (var p in Model)
+        {
+            @Html.Partial("KrzewLisciastySummary", p)
+        }
+    }
+    else
+    {
+        <h4><strong>Brak wyników</strong></h4>
+    }
+</div>
+
+<div style="float:right">
+    Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+<script type="text/javascript">
+    var index = parseInt(sessionStorage.getItem("lisciasteVar"));
+    document.getElementById('sortOrder').selectedIndex = index;
+
+    $(document).ready(function () {
+        $("#sortOrder").change(function () {
+            selectedValue = document.getElementById('sortOrder').value;
+            selectedIndex = document.getElementById('sortOrder').selectedIndex;
+            sessionStorage.setItem("lisciasteVar", selectedIndex.toString());
+            if (selectedValue == 1) {
+                window.location = '@Url.Action("List", new { sortOrder = ViewBag.SortOrderAlphabetical, currentFilter = ViewBag.CurrentFilter})';
+            }
+            else if (selectedValue == 2) {
+                window.location = '@Url.Action("List", new { sortOrder = ViewBag.SortOrderAlphabeticalDescending, currentFilter = ViewBag.CurrentFilter})';
+            }
+            else if (selectedValue == 3) {
+                window.location = '@Url.Action("List", new { sortOrder = ViewBag.SortOrderPrice, currentFilter = ViewBag.CurrentFilter})';
+            }
+            else if (selectedValue == 4) {
+                window.location = '@Url.Action("List", new { sortOrder = ViewBag.SortOrderPriceDescending, currentFilter = ViewBag.CurrentFilter})';
+            }
+        })
+    })
+
+    $(document).ready(function () {
+        $("#SearchString").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/KrzewyLisciaste/Results",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Name, value: item.Name };
+                        }))
+
+                    }
+                })
+            },
+            messages: {
+                noResults: "", results: ""
+            }
+        });
+    })
+</script>

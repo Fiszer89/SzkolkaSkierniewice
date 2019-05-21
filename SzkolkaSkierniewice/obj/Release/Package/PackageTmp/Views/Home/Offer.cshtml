@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Offer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Oferta asortymentowa</h3>
+
+<div style="font-size: small">
+    <p>W naszej Szkółce znajdują się różnorodne drzewa i krzewy ozdobne,
+        które cieszą się dużym zainteresowaniem na polskim rynku.
+        Wszystkie z nich charakteryzuje unikalna kompozycja kolorów, ciekawe kształty,
+        a także mocne łodygi i korzenie. Zależy nam na właściwej pielęgnacji tych roślin,
+        dlatego stawiamy na optymalne warunki ich uprawy.</p>
+
+    <p>Dodatkowo, oferujemy naszym Klientom niezwykle atrakcyjne, konkurencyjne warunki współpracy,
+        w skład których wchodzi zarówno sprzedaż detaliczna i hurtowa, doradztwo w zakresie ogrodnictwa,
+        projektowanie i zakładanie ogrodów, a także transport oraz obsługa logistyczna.</p>
+
+    <p>Zachęcamy do bliższego zapoznania się oraz skorzystania z naszych usług!</p>
+</div>
+
+<h3>Warunki sprzedaży hurtowej:</h3>
+
+<div style="font-size: small">
+    <ul>
+        <li>Sprzedaż hurtowa obowiązuje przy jednorazowym zakupie o wartości powyżej 2000 PLN, w tym 10 sztuk z odmiany.</li>
+        <li>Zaliczka na zamówione rośliny wynosi 25% wartości zakupu, pozostała kwota przy odbiorze roślin.</li>
+        <li>Na życzenie odbiorcy towar dostarczamy pod wskazany adres po uzgodnieniu warunków.</li>
+        <li>Rośliny z gruntu są dostępne w sprzedaży od marca do maja oraz od września do listopada.</li>
+        <li>Odbiór większej ilości roślin prosimy uzgadniać z 4 dniowym wyprzedzeniem.</li>
+        <li>Sprzedaż odbywa się od poniedziałku do piatku w godzinach 10.00-17.00, sobota 10.00-14.00.</li>
+        <li>W trakcie sezonu podane ceny oraz asortyment może ulec zmianie.</li>
+    </ul>
+</div>
+
+<h3>W ofercie:</h3>
+
+<div class="clearfix">
+    <a href="@Url.Action("List", "DrzewaAlejowe", null)">
+        <div style="display: inline-block; width: 170px; height: 200px; vertical-align: top; margin: 10px;">
+            <h4 style="text-align: center;">Drzewa alejowe</h4>
+            <img src="~/Content/Images/drzewaalejowe-grunt.jpg" width="170" height="170"/>
+        </div></a>
+    <a href="@Url.Action("List", "IglakiGrunt", null)">
+        <div style="display: inline-block; width: 170px; height: 200px; vertical-align: top; margin: 10px;">
+            <h4 style="text-align: center;">Iglaki grunt</h4>
+            <img src="~/Content/Images/iglaki-grunt.jpg" width="170" height="170"/>
+        </div></a>
+    <a href="@Url.Action("List", "IglakiPojemnik", null)">
+        <div style="display: inline-block; width: 170px; height: 200px; vertical-align: top; margin: 10px;">
+            <h4 style="text-align: center;">Iglaki pojemnik</h4>
+            <img src="~/Content/Images/iglaki-pojemnik.jpg" width="170" height="170"/>
+        </div></a>
+    <a href="@Url.Action("List", "KrzewyLisciaste", null)">
+        <div style="display: inline-block; width: 170px; height: 200px; vertical-align: top; margin: 10px;">
+            <h4 style="text-align: center;">Krzewy liściaste</h4>
+            <img src="~/Content/Images/krzewylisciaste-pojemnik.jpg" width="170" height="170"/>
+        </div></a>
+</div>
+
+<div style="margin-top:30px">
+    <p>Pobierz ofertę roślin w excelu:</p>
+    <a href="@Url.Action("ExportToExcel")" class="btn btn-primary">Pobierz</a>
+</div>
+

@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<SzkolkaSkierniewice.Domain.Entities.Product>
+
+@{
+    ViewBag.Title = "Wyszukane rośliny";
+}
+
+<div id="summary" style="clear:right">
+
+        @foreach (var p in Model)
+        {
+            @Html.Partial("ProductsSummary", p)
+        }
+</div>

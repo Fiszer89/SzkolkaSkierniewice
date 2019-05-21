@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SzkolkaSkierniewice.Domain.Entities.KrzewLisciasty>
+
+@{
+    ViewBag.Title = "Lista krzewów liściastych";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+        <h3>Krzewy liściaste</h3>
+    </div>
+    <div class="panel panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th>
+                    Nazwa
+                </th>
+                <th>
+                    Data dodania
+                </th>
+                <th>
+                    Ilość(sztuki)
+                </th>
+                <th>
+                    Cena (zł)
+                </th>
+                <th>
+                    Zniżka (%)
+                </th>
+                <th>
+                    Cena po zniżce (zł)
+                </th>
+                <th>
+                    Wielkość minimalna (metry)
+                </th>
+                <th>
+                    Wielkość maksymalna (metry)
+                </th>
+                <th>
+                    Dostępność
+                </th>
+                <th>
+                    Pojemniki
+                </th>
+                <th>
+                    Akcje
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Name, "EditKrzewLisciasty", new { item.ProductID })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @item.Price.ToString("c")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Discount)
+                    </td>
+                    <td>
+                        @item.PriceAfterDicount.ToString("c")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HeightMin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HeightMax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Available)
+                    </td>
+                    <td>
+                        @if(item.Boxes != null)
+                        {
+                            foreach(var box in item.Boxes)
+                            {
+                                @box.Name<br />
+                            }
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("DeleteKrzewLisciasty", "Admin"))
+                        {
+                            @Html.Hidden("ProductID", item.ProductID)
+                            <input type="submit" value="Usuń" />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="panel panel-footer">
+        @Html.ActionLink("Dodaj nowy krzew liściasty", "CreateKrzewLisciasty", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+

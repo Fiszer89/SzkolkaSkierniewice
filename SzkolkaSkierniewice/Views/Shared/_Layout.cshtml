@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Detalis.css" rel="stylesheet" />
+    <link href="~/Content/Gallery.css" rel="stylesheet" />
+    <link href="~/Content/GalleryStyle.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery-ui.structure.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery-ui.theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2EUe60eiMmLgs3SRYwo1sVVpb7B43hAc&callback=initMap">
+    </script>   
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            margin: auto;
+            width:100%;
+            height:250px;
+        }
+        li {
+           border-right: 1px solid white;
+        }
+        li:last-child {
+           border-right: none;
+        }
+        .noborder{
+            border-right:none;
+        }
+        .container-full {
+          margin: 0 auto;
+          width: 100%;
+        }     
+        .floating-box {
+            display: inline-block;
+            width: 170px;
+            height: 230px;
+            vertical-align:top;
+            margin: 10px;
+        }
+        body{
+            padding-top:0px;
+            padding-bottom:0px;
+        }
+        footer{
+            padding-bottom:0px;
+            margin-bottom:0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="myCarousel" class="carousel slide  hidden-xs" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+
+                <div class="item active">
+                    <a href="@Url.Action("List", "DrzewaAlejowe", new { sortOrder = ViewBag.SortOrderAlphabetical })">
+                        <h4 style="position:absolute; color:gold; top: 10%; left: 50%; transform: translate(-50%, -50%);">
+                            <!--<strong>Szkółka Drzew i Krzewów Ozdobnych w Skierniewicach</strong>-->
+                        </h4>
+                        <img src="~/Content/Images/banerAlejoweCiety.jpg" alt="Drzewa alejowe" width="460" height="200">
+                        <div class="carousel-caption">
+                            <h3>Drzewa alejowe</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="@Url.Action("List", "IglakiGrunt", new { sortOrder = ViewBag.SortOrderAlphabetical })">
+                        <h4 style="position:absolute; color:gold; top: 10%; left: 50%; transform: translate(-50%, -50%);">
+                                <!--<strong>Szkółka Drzew i Krzewów Ozdobnych w Skierniewicach</strong>-->
+                        </h4>
+                        <img src="~/Content/Images/banerIglakiGruntCiety.jpg" alt="Iglaki grunt" width="460" height="200">
+
+                        <div class="carousel-caption">
+                            <h3>Iglaki w gruncie</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="@Url.Action("List", "IglakiPojemnik", new { sortOrder = ViewBag.SortOrderAlphabetical })">
+                        <h4 style="position:absolute; color:gold; top: 10%; left: 50%; transform: translate(-50%, -50%);">
+                            <!--<strong>Szkółka Drzew i Krzewów Ozdobnych w Skierniewicach</strong>-->
+                        </h4>
+                        <img src="~/Content/Images/banerIglakiPojemnikCiety.jpg" alt="Iglaki pojemnik" width="460" height="200">
+
+                        <div class="carousel-caption">
+                            <h3>Iglaki w pojemnikach</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="@Url.Action("List", "KrzewyLisciaste", new { sortOrder = ViewBag.SortOrderAlphabetical })">
+                        <h4 style="position:absolute; color:gold; top: 10%; left: 50%; transform: translate(-50%, -50%);">
+                            <!--<strong>Szkółka Drzew i Krzewów Ozdobnych w Skierniewicach</strong>-->
+                        </h4>
+                        <img src="~/Content/Images/banerLisciasteCiety.jpg" alt="Krzewy lisciaste" width="460" height="200">
+
+                        <div class="carousel-caption">
+                            <h3>Krzewy liściaste</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header visible-lg visible-md visible-sm" style="float:left; border-right: 1px solid white">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("SZKÓŁKA SKIERNIEWICE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand hidden-xs hidden-sm hidden-md" })
+                    @Html.ActionLink("SZKÓŁKA SKIERNIEWICE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand visable-xs hidden-sm hidden-md hidden-lg", @style = "font-size: 1em"})
+                </div>
+                <div class="navbar-header visible-xs" style="float:left;">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("SZKÓŁKA SKIERNIEWICE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand hidden-xs" })
+                    @Html.ActionLink("SZKÓŁKA SKIERNIEWICE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand visable-xs hidden-sm hidden-md hidden-lg", @style = "font-size: 1em" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav visible-lg">
+                        <li>@Html.ActionLink("STRONA STARTOWA", "Index", "Home")</li>
+                        <li>@Html.ActionLink("OFERTA ROŚLIN", "Offer", "Home")</li>
+                        <li>@Html.ActionLink("PROMOCJE", "PromotionList", "Search")</li>
+                        <li>@Html.ActionLink("GALERIA", "List","ImageGallery")</li>
+                        <li>@Html.ActionLink("KONTAKT", "Contact", "Home")</li>
+                    </ul>
+                    <ul class="nav navbar-nav visible-md visible-sm">
+                        <li style="font-size:small">@Html.ActionLink("STRONA STARTOWA", "Index", "Home")</li>
+                        <li style="font-size:small">@Html.ActionLink("OFERTA ROŚLIN", "Offer", "Home")</li>
+                        <li style="font-size:small">@Html.ActionLink("PROMOCJE", "PromotionList", "Search")</li>
+                        <li style="font-size:small">@Html.ActionLink("GALERIA", "List", "ImageGallery")</li>
+                        <li style="font-size:small">@Html.ActionLink("KONTAKT", "Contact", "Home")</li>
+                    </ul>
+                    <ul class="nav navbar-nav visible-xs">
+                        <li class="noborder">@Html.ActionLink("STRONA STARTOWA", "Index", "Home")</li>
+                        <li class="noborder">@Html.ActionLink("OFERTA ROŚLIN", "Offer", "Home")</li>
+                        <li class="noborder">@Html.ActionLink("PROMOCJE", "PromotionList", "Search")</li>
+                        <li class="noborder">@Html.ActionLink("GALERIA", "List", "ImageGallery")</li>
+                        <li class="noborder">@Html.ActionLink("KONTAKT", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row panel" style="">
+            <div class="container">
+                <div id="catrgories" class="col-md-3 hidden-xs hidden-sm">
+                    <h3 style="text-align:center; margin-bottom: 20px">Kategorie</h3>
+                    @Html.ActionLink("DRZEWA ALEJOWE", "List", "DrzewaAlejowe", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-block btn-default btn-log " + ("DrzewaAlejowe" == ViewBag.SelectedCategory ? "btn-primary" : "") })
+                    @Html.ActionLink("IGLAKI GRUNT", "List", "IglakiGrunt", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-block btn-default btn-log " + ("IglakiGrunt" == ViewBag.SelectedCategory ? "btn-primary" : "") })
+                    @Html.ActionLink("IGLAKI POJEMNIK", "List", "IglakiPojemnik", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-block btn-default btn-log " + ("IglakiPojemnik" == ViewBag.SelectedCategory ? "btn-primary" : "") })
+                    @Html.ActionLink("KRZEWY LIŚCISTE", "List", "KrzewyLisciaste", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-block btn-default btn-log " + ("KrzewyLisciaste" == ViewBag.SelectedCategory ? "btn-primary" : "") })
+                    <div style="margin-top: 20px">
+                        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                        {
+                            <div class="input-group">
+                                @Html.Editor("search", ViewBag.CurrentFilter as string, new { htmlAttributes = new { @class = "form-control", placeholder = "Wyszukaj rośliny" } })
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <hr />
+                    <div class="visible-lg visible-md">
+                        <h3 style="text-align:center">Najnowsze Promocje</h3>
+                        <div style="margin:auto; width:80%; height:80%">
+                            @Html.Action("Promotions", "Search")
+                        </div>
+                    </div>
+                </div>
+                <div id="catrgories" class="visible-xs btn-group btn-group-xs btn-group-justified">
+                    @Html.ActionLink("DRZEWA ALEJOWE", "List", "DrzewaAlejowe", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block" + ("DrzewaAlejowe" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:8px" })
+                    @Html.ActionLink("IGLAKI GRUNT", "List", "IglakiGrunt", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block" + ("IglakiGrunt" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:8px" })
+                    @Html.ActionLink("IGLAKI POJEMNIK", "List", "IglakiPojemnik", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block" + ("IglakiPojemnik" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:8px" })
+                    @Html.ActionLink("KRZEWY LIŚCISTE", "List", "KrzewyLisciaste", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block " + ("KrzewyLisciaste" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:8px" })
+                    <div style="margin-top: 20px">
+                        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                        {
+                            <div class="input-group">
+                                @Html.Editor("search", ViewBag.CurrentFilter as string, new { htmlAttributes = new {  placeholder = "Wyszukaj rośliny" } })
+                                <button type="submit" class="">Szukaj</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="catrgories" class="visible-sm btn-group btn-group-sm btn-group-justified">
+                    @Html.ActionLink("DRZEWA ALEJOWE", "List", "DrzewaAlejowe", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block" + ("DrzewaAlejowe" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:small" })
+                    @Html.ActionLink("IGLAKI GRUNT", "List", "IglakiGrunt", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block" + ("IglakiGrunt" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:small" })
+                    @Html.ActionLink("IGLAKI POJEMNIK", "List", "IglakiPojemnik", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block" + ("IglakiPojemnik" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:small" })
+                    @Html.ActionLink("KRZEWY LIŚCISTE", "List", "KrzewyLisciaste", new { sortOrder = ViewBag.SortOrderAlphabetical }, new { @class = "btn btn-default btn-xs btn-block " + ("KrzewyLisciaste" == ViewBag.SelectedCategory ? "btn-primary" : ""), @style = "font-size:small" })
+                    <div style="margin-top: 20px">
+                        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                        {
+                            <div class="input-group">
+                                @Html.Editor("search", ViewBag.CurrentFilter as string, new { htmlAttributes = new { placeholder = "Wyszukaj rośliny" } })
+                                <button type="submit" class="">Szukaj</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-9">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <footer style="background-color:lightslategrey">
+            <div style="padding:10px" class="multi-lanes clearfix">
+                <p>
+                    <strong> Szkółka Drzew i Krzewów Ozdobnych w Skierniewicach</strong>
+                    <br>
+                    Punkt sprzedaży: ul. Zwierzyniecka 40A, 96-100 Skierniewice.
+                    <br>
+                    Czynny od poniedziałku do piątku w godz. 10-16, w soboty 10-13.
+                    <br>
+                    Tel. 609-846-309
+                    <br>
+                    e-mail: szkolkaskc@gmail.com
+                    <br>
+                </p>
+                <p style="float:left; ">@Html.ActionLink("Polityka prywatności", "PrivacyPolicy", "Home", new { @style = "color:green"})</p>
+                <p style="float:right; ">&copy; @DateTime.Now.Year - Wykonane przez Adrian Flejszer</p>
+            </div>  
+        </footer>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#search").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Search/Results",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Name, value: item.Name };
+                        }))
+
+                    }
+                })
+            },
+            messages: {
+                noResults: "", results: ""
+            }
+        });
+    })
+</script>

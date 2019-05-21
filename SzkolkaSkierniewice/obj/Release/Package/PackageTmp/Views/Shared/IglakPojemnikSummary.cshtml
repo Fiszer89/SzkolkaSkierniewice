@@ -1,0 +1,30 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.IglakPojemnik
+
+<div class="floating-box well">
+    <h6 style="text-align:center">
+        <span>
+            <strong>@Html.ActionLink(MyHelpers.Truncate(Model.Name, 20).ToString(), "Details", new { Model.ProductID })</strong>
+        </span>
+    </h6>
+    @if (Model.ImageData != null)
+    {
+        <div style="display: block; margin: 0 auto">
+            <a href="@Url.Action("Details", new { Model.ProductID})"><img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "IglakiPojemnik", new { Model.ProductID})" /></a>
+        </div>
+    }
+    else
+    {
+        <div>brak zdjęcia</div>
+    }
+
+    @if (Model.Price == Model.PriceAfterDicount)
+    {
+        <div class="label label-primary" style="font-size:10px; margin-top:30px; display:inline-block">Cena: @Model.Price zł</div>
+        <div></div>
+    }
+    else
+    {
+        <div class="label label-primary" style="font-size:10px; margin-bottom:5px; display:inline-block"><del>Cena: @Model.Price zł</del></div>
+        <div class="label label-primary" style="font-size:10px; margin-top:5px; display:inline-block">Cena w promocji: @decimal.Round(Model.PriceAfterDicount, 2, MidpointRounding.AwayFromZero) zł</div>
+    }
+</div>

@@ -1,0 +1,94 @@
+﻿@model SzkolkaSkierniewice.Models.ContactModels
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>KONTAKT</h3>
+<div class="pull-left">
+    <p style="margin-bottom:30px; margin-top:30px; font-size:small">
+        <span style="padding-bottom:10px">
+            <strong>Adres:</strong>
+            <br>
+            ul. Zwierzyniecka 40A
+            <br>
+            96-100 Skierniewice
+            <br>
+            <strong>Czynne:</strong>
+            <br>
+            poniedziałek-piątek: 10-16
+            <br>
+            soboty: 10-13
+            <br>
+            <strong>telefon:</strong>
+            <br>
+            609-846-309
+            <br>
+            <strong>e-mail:</strong>
+            <br>
+            szkolkaskc@gmail.com
+        </span>
+    </p>
+</div>
+<div class="clearfix visible-lg visible-md visible-sm visible-xs">
+    <div id="map" style="width:50%;height:300px; float:right; min-width:250px"></div>
+</div>
+
+<h2>Formularz kontaktowy:</h2>
+
+<div style="font-size:small">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, "Imię:", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, "Nazwisko:", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, "Email:", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, "Komentarz:", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Comment, 5, 50, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Zatwierdź" />
+                <input type="reset" value="Reset" />
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        myMap();
+    })
+
+    function myMap() {
+        var myCenter = new google.maps.LatLng(51.9549247, 20.1158810);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = { center: myCenter, zoom: 15 };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({ position: myCenter });
+        marker.setMap(map);
+    }
+</script>

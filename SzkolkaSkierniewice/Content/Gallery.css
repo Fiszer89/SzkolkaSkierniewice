@@ -1,0 +1,15 @@
+﻿div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    display: inline-block
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 190px;
+    height: 190px;
+}
+

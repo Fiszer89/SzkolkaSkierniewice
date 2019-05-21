@@ -1,0 +1,116 @@
+﻿@model PagedList.IPagedList<SzkolkaSkierniewice.Domain.Entities.GalleryImage>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<div class="row">
+    @if (Model.Count > 0)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <div class="column visible-lg visible-md visible-sm" style="margin-bottom:20px">
+                <img class="hover-shadow cursor" style="width: 100%" onclick="openModal(); currentSlide(@i);" width="170" height="170" src="@Url.Action("GetPhoto", "ImageGallery", new {item.GalleryImageID})" />
+            </div>
+            <div class="columnXS visible-xs" style="margin-bottom:20px">
+                <img class="hover-shadow cursor" style="width: 100%" onclick="openModal(); currentSlide(@i);" width="170" height="170" src="@Url.Action("GetPhoto", "ImageGallery", new {item.GalleryImageID})" />
+            </div>
+            i++;
+        }
+    }
+    else
+    {
+        <h4><strong>Brak wyników</strong></h4>
+    }
+</div>
+
+<div style="float: right; margin-top: 30px">
+    Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close cursor" style="color: white;" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        @if (Model.Count > 0)
+        {
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <div class="mySlides">
+                    <div class="numbertext">@i / @Model.Count</div>
+                    <img style="width: 100%; max-height: 600px" src="@Url.Action("GetPhoto", "ImageGallery", new {item.GalleryImageID})" />
+                </div>
+                i++;
+            }
+        }
+        else
+        {
+            <h4><strong>Brak wyników</strong></h4>
+        }
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('keyup', function (e) {
+        if (e.keyCode == 27) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keyup', function (e) {
+        if (e.keyCode == 37) {
+            plusSlides(-1);
+        }
+    });
+
+    document.addEventListener('keyup', function (e) {
+        if (e.keyCode == 39) {
+            plusSlides(1);
+        }
+    });
+
+    function openModal() {
+        document.getElementById('myModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>

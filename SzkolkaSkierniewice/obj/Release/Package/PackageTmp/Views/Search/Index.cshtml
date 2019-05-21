@@ -1,0 +1,29 @@
+﻿@model PagedList.IPagedList<SzkolkaSkierniewice.Domain.Entities.Product>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Wyszukane rośliny";
+}
+
+<h3>Lista wyszukanych roślin</h3>
+
+<div id="summary" style="clear:right">
+    @if (Model.Count > 0)
+    {
+        foreach (var p in Model)
+        {
+            @Html.Partial("ProductsSummary", p)
+        }
+    }
+    else
+    {
+        <h4><strong>Brak wyników</strong></h4>
+    }
+</div>
+
+<div style="float:right">
+    Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("List", new { page, currentFilter = ViewBag.CurrentFilter }))
+</div>
+

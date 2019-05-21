@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h3>O szkółce</h3>
+
+<p style="font-size:small">
+    Szkółka Skierniewice powstała na bazie rodzinnego gospodarstwa ogrodniczego. Od wielu lat prowadzimy sprzedaż materiału szkółkarskiego z własnych szkółek prowadzonych w miejscowościach Skierniewice ul.Zwierzyniecka 40A i Kolonia Wola Szydłowiecka 24 gmina Bolimów.
+</p>
+
+<ul style="font-size:small">
+    <li>Szkółka znajduje się w rejestrze Państwowej Inspekcji Ochrony Roślin i Nasiennictwa w Skierniewicach.</li>
+
+    <li>Specjalizacja szkółki to produkcja roślin ozdobnych w tym głównie roślin iglastych.</li>
+
+    <li>Klientów detalicznych zapraszamy do punktu sprzedaży znajdującego się przy szkółce w Skierniewicach.</li>
+
+    <li>Naszym klientom oferujemy także doradztwo w zakresie pielęgnacji roślin jak i projektowania ogrodów.</li>
+</ul>
+
+<p>
+    <h4>Serdecznie zapraszamy do współpracy!</h4>
+</p>
+
+<div style="margin-top:30px; margin-bottom:30px" class="hidden-xs">
+    <div style="margin:auto; width:50%; overflow:hidden">
+        <img src="~/Content/Images/oszkolce.jpg" />
+    </div>
+</div>
+
+<p style="text-align:center;margin-bottom:30px; font-size:small">
+    <strong>
+        Punkt sprzedaży: ul. Zwierzyniecka 40A, 96-100 Skierniewice.
+        <br>
+        Czynny od poniedziałku do piątku w godz. 10-16, w soboty 10-13.
+        <br>
+        Tel. 609-846-309
+        <br>
+        e-mail: szkolkaskc@gmail.com
+    </strong>
+</p>
+
+
+<div class="visible-lg visible-md visible-sm visible-xs" style="margin-bottom: 20px">
+    <div id="map" style="width:50%;height:300px;margin:auto; min-width:250px"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        myMap();
+    })
+
+    function myMap() {
+        var myCenter = new google.maps.LatLng(51.9549247, 20.1158810);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = { center: myCenter, zoom: 15 };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({ position: myCenter });
+        marker.setMap(map);
+    }
+</script>

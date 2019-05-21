@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <title>Strona Administracyjna</title>
+    <style>
+
+    </style>
+</head>
+<body>  
+    <div>
+        <ul class="nav navbar-nav" style="">
+            <li>@Html.ActionLink("Drzewa alejowe", "DrzewoAlejoweList", "Admin")</li>
+            <li>@Html.ActionLink("Iglaki w gruncie", "IglakGruntList", "Admin")</li>
+            <li>@Html.ActionLink("Iglaki w pojemnikach", "IglakPojemnikList", "Admin")</li>
+            <li>@Html.ActionLink("Krzewy lisciaste", "KrzewLisciastyList", "Admin")</li>
+            <li>@Html.ActionLink("Pojemniki", "BoxesList", "Admin")</li>
+            <li>@Html.ActionLink("Galeria zdjęć", "GalleryImageList", "Admin")</li>
+            <!--<li>Html.ActionLink("Promocje", "PromotionList", "Admin")</li>-->
+        </ul>
+    </div>
+    <div style="position:relative; top: 70px">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success" style="position:relative">@TempData["message"]</div>
+        }
+        @RenderBody()
+    </div>
+</body>
+</html>

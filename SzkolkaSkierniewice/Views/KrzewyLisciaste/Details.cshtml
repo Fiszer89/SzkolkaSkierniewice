@@ -1,0 +1,102 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.KrzewLisciasty
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-top:20px; border:solid">
+    <div style="margin-left:20px; margin-right:20px">
+        <div class="multi-lanes">
+            <h4>
+                <strong>@Model.Name</strong>
+            </h4>
+        </div>
+        <hr />
+        @if (Model.ImageData != null)
+        {
+            <div class="pull-left">
+                <img class="img-thumbnail" width="300" height="300" src="@Url.Action("GetImage", "KrzewyLisciaste", new { Model.ProductID})" />
+            </div>
+        }
+        else
+        {
+            <div class="pull-left">
+                Brak zdjęcia
+            </div>
+        }
+        <div class="clearfix">
+            <div class="floating-elements">
+                <div style="background-color:aliceblue; padding:10px;">
+                    <div>
+                        @if(Model.Available == true)
+                        { 
+                            <strong>Dostępność: Tak</strong>
+                        }
+                        else
+                        {
+                            <strong>Dostępność: Nie</strong>
+                        }
+                    </div>
+                    <div>
+                        @if (Model.Quantity != null)
+                        {
+                            <strong>Dostępna ilość sztuk: @Model.Quantity</strong>
+                        }
+                    </div>
+                    <div>
+                        @if (Model.HeightMax != null)
+                        {
+                            <strong>Wysokość: od @Model.HeightMin do @Model.HeightMax (metry)</strong>
+                        }
+                        else
+                        {
+                            <strong>Wysokość: @Model.HeightMin (metry)</strong>
+                        }
+                    </div>
+                    <div>                       
+                        @if (Model.Boxes != null)
+                        {
+                            <strong>Pojemniki: </strong>
+                            foreach (var box in Model.Boxes)
+                            {
+                                <strong class="coma-after-element coma-none-element">@box.Name </strong>
+                            }
+                        }
+                    </div>
+                    <div style="margin-top:40px">
+                        <div>
+                            @if (Model.Discount != null)
+                            {
+                                <del><strong>Cena: @Model.Price zł</strong></del>
+                            }
+                            else
+                            {
+                                <h4><strong>Cena: @Model.Price zł</strong></h4>
+                            }
+                        </div>
+                        <div>
+                            @if (Model.Discount != null)
+                            {
+                                <strong>Zniżka procentowa: @((int)(Model.Discount * 100)) %</strong>
+                            }
+                        </div>
+                        <div>
+                            @if (Model.Discount != null)
+                            {
+                                <h4><strong>Cena w promocji: @decimal.Round(Model.PriceAfterDicount, 2, MidpointRounding.AwayFromZero) zł</strong></h4>
+                            }
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        <div>
+            <div class="text-center">
+                <strong>OPIS</strong>
+            </div>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+</div>
+

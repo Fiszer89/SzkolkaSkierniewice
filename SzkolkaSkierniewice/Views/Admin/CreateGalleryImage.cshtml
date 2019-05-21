@@ -1,0 +1,54 @@
+﻿@model SzkolkaSkierniewice.Domain.Entities.GalleryImage
+
+@{
+    ViewBag.Title = "Utwórz zdjęcie do galrii";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+<div class="panel-heading">
+    <h2>Utwórz zdjęcie w galerii</h2>
+</div>
+
+    @using (Html.BeginForm("CreateGalleryImage", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Date, null, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Date)
+            </div>
+
+            <div class="form-group">
+                <div style="position:relative;">
+                    <label>Zdjęcie</label>
+                    <a class='btn' href='javascript:;'>
+                        Wybierz plik...
+                        <input type="file" name="Image" size="40"
+                               style="position:absolute;z-index:2;top:0;
+                            left:0;filter: alpha(opacity=0); opacity:0;
+                            background-color:transparent;color:transparent;"
+                               onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class='label label-info' id="upload-file-info"></span>
+                </div>
+                @if (Model.ImageData == null)
+                {
+                    <div class="form-control-static">Brak zdjęcia</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetPhoto", "ImageGalleryController", new { Model.GalleryImageID })" />
+                }
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <input type="submit" value="Zapisz" class="btn btn-primary" />
+            @Html.ActionLink("Anuluj i wróć do listy", "GalleryImageList", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
